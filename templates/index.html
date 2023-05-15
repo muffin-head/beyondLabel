@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Selection</title>
+    <style>
+        img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emotion Selection</h1>
+    <form method="POST">
+{% if next_image %}
+    <img src="{{ url_for('static', filename='image_directory/' + next_image) }}" alt="Image">
+{% else %}
+    <p>No more images.</p>
+{% endif %}
+        <br>
+        <input type="hidden" name="current_image" value="{{ next_image }}">
+        <input type="radio" name="emotion" value="angry"> Angry<br>
+        <input type="radio" name="emotion" value="sad"> Sad<br>
+        <input type="radio" name="emotion" value="happy"> Happy<br>
+        <input type="radio" name="emotion" value="fear"> Fear<br>
+        <input type="radio" name="emotion" value="disgust"> Disgust<br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+  
